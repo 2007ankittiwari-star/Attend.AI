@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Smart Attendance | Settings</title>
+
+<link rel="stylesheet"
+href="css/settings.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<div class="logo">
+
+<div class="logo-icon">
+
+VIT
+
+</div>
+
+<h2>Smart Attendance</h2>
+
+<p>VIT Bhopal University</p>
+
+</div>
+
+<ul>
+
+<a href="dashboard.html" class="nav-link">
+    <li class="active">
+        <i class="fa-solid fa-house"></i>
+        <span>Dashboard</span>
+    </li>
+</a>
+
+<a href="attendance.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-camera"></i>
+        <span>Take Attendance</span>
+    </li>
+</a>
+
+<a href="students.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-user-group"></i>
+        <span>Students</span>
+    </li>
+</a>
+
+<a href="history.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>History</span>
+    </li>
+</a>
+
+<a href="reports.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Reports</span>
+    </li>
+</a>
+
+<a href="settings.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+    </li>
+</a>
+
+</ul>
+<div class="logout-section">
+
+    <button id="logoutBtn">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Logout
+
+    </button>
+
+</div>
+
+
+</div>
+
+<div class="main">
+
+<header>
+
+<h1>System Settings</h1>
+
+<p>Manage Faculty Profile & AI Configuration</p>
+
+</header>
+
+<!-- Profile -->
+
+<section class="settings-card">
+
+<h2>
+
+Faculty Profile
+
+</h2>
+
+<div class="profile">
+
+<img src="https://i.pravatar.cc/120?img=12">
+
+<div>
+
+<label>Name</label>
+
+<input
+type="text"
+value="Prof. Faculty Name">
+
+<label>Email</label>
+
+<input
+type="email"
+value="faculty@vitbhopal.ac.in">
+
+<label>Department</label>
+
+<input
+type="text"
+value="Computer Science Engineering">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Preferences -->
+
+<section class="settings-card">
+
+<h2>
+
+Preferences
+
+</h2>
+
+<div class="setting-row">
+
+<label>Dark Mode</label>
+
+<input type="checkbox" checked>
+
+</div>
+
+<div class="setting-row">
+
+<label>Email Notifications</label>
+
+<input type="checkbox" checked>
+
+</div>
+
+<div class="setting-row">
+
+<label>Auto Attendance Save</label>
+
+<input type="checkbox" checked>
+
+</div>
+
+<div class="setting-row">
+
+<label>Unknown Face Alert</label>
+
+<input type="checkbox">
+
+</div>
+
+</section>
+
+<!-- AI -->
+
+<section class="settings-card">
+
+<h2>
+
+AI Recognition Settings
+
+</h2>
+
+<label>
+
+Recognition Threshold
+
+</label>
+
+<input
+type="range"
+min="50"
+max="100"
+value="85"
+id="threshold">
+
+<p>
+
+Confidence :
+<span id="value">
+
+85%
+
+</span>
+
+</p>
+
+</section>
+
+<div class="buttons">
+
+<button id="saveSettings">
+
+Save Settings
+
+</button>
+
+<button id="resetSettings">
+
+Reset
+
+</button>
+
+</div>
+
+<script src="js/settings.js"></script>
+
+</div>
+
+</body>
+
+</html>

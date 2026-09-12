@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title> Smart Attendance| Attendance Results</title>
+
+<link rel="stylesheet" href="css/results.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<div class="logo">
+
+<div class="logo-icon">AI</div>
+
+<h2>Smart Attendance</h2>
+
+<p>VIT Bhopal University</p>
+
+</div>
+
+<ul>
+
+<li>
+<i class="fa-solid fa-house"></i>
+Dashboard
+</li>
+
+<li>
+<i class="fa-solid fa-camera"></i>
+Take Attendance
+</li>
+
+<li class="active">
+<i class="fa-solid fa-square-poll-horizontal"></i>
+Attendance Results
+</li>
+
+<li>
+<i class="fa-solid fa-users"></i>
+Students
+</li>
+
+<li>
+<i class="fa-solid fa-clock"></i>
+History
+</li>
+
+<li>
+<i class="fa-solid fa-chart-column"></i>
+Reports
+</li>
+
+<li>
+<i class="fa-solid fa-gear"></i>
+Settings
+</li>
+
+</ul>
+<div class="logout-section">
+
+    <button id="logoutBtn">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Logout
+
+    </button>
+
+</div>
+
+</div>
+
+<!-- Main -->
+
+<div class="main">
+
+<header>
+
+<div>
+
+<h1>Attendance Results</h1>
+
+<p>Machine Learning • Section A</p>
+
+</div>
+
+<div class="top-actions">
+
+<button class="excel">
+
+<i class="fa-solid fa-file-excel"></i>
+
+Export Excel
+
+</button>
+
+<button class="pdf">
+
+<i class="fa-solid fa-file-pdf"></i>
+
+Export PDF
+
+</button>
+
+</div>
+
+</header>
+
+<!-- Summary Cards -->
+
+<section class="summary">
+
+<div class="summary-card">
+
+<h2 id="totalStudents">
+
+60
+
+</h2>
+
+<p>Total Students</p>
+
+</div>
+
+<div class="summary-card">
+
+<h2 id="presentStudents">
+
+54
+
+</h2>
+
+<p>Present</p>
+
+</div>
+
+<div class="summary-card">
+
+<h2 id="absentStudents">
+
+6
+
+</h2>
+
+<p>Absent</p>
+
+</div>
+
+<div class="summary-card">
+
+<h2 id="attendancePercent">
+
+90%
+
+</h2>
+
+<p>Attendance</p>
+
+</div>
+
+</section>
+
+<!-- Search -->
+
+<div class="search-box">
+
+<input
+type="text"
+id="searchStudent"
+placeholder="Search Student Name or Registration Number...">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+</div>
+
+<!-- Attendance Table -->
+
+<section class="table-card">
+
+<h2>
+
+Attendance List
+
+</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Photo</th>
+
+<th>Registration</th>
+
+<th>Name</th>
+
+<th>Status</th>
+
+<th>Time</th>
+
+</tr>
+
+</thead>
+
+<tbody id="studentTable">
+
+<tr>
+
+<td>
+
+<img src="https://i.pravatar.cc/45?img=10">
+
+</td>
+
+<td>25BCE11384</td>
+
+<td>Vishva Chauhan</td>
+
+<td>
+
+<span class="present">
+
+Present
+
+</span>
+
+</td>
+
+<td>09:04 AM</td>
+
+</tr>
+<tr>
+
+<td>
+
+<img src="https://i.pravatar.cc/45?img=11">
+
+</td>
+
+<td>25BCE11116</td>
+
+<td>Rahul Sharma</td>
+
+<td>
+
+<span class="present">
+
+Present
+
+</span>
+
+</td>
+
+<td>09:05 AM</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<img src="https://i.pravatar.cc/45?img=12">
+
+</td>
+
+<td>25BCE11117</td>
+
+<td>Ananya Patel</td>
+
+<td>
+
+<span class="present">
+
+Present
+
+</span>
+
+</td>
+
+<td>09:06 AM</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<img src="https://i.pravatar.cc/45?img=13">
+
+</td>
+
+<td>25BCE11118</td>
+
+<td>Aarav Singh</td>
+
+<td>
+
+<span class="absent">
+
+Absent
+
+</span>
+
+</td>
+
+<td>--</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<img src="https://i.pravatar.cc/45?img=14">
+
+</td>
+
+<td>25BCE11119</td>
+
+<td>Priya Verma</td>
+
+<td>
+
+<span class="present">
+
+Present
+
+</span>
+
+</td>
+
+<td>09:08 AM</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<img src="https://i.pravatar.cc/45?img=15">
+
+</td>
+
+<td>25BCE11120</td>
+
+<td>Karan Mehta</td>
+
+<td>
+
+<span class="absent">
+
+Absent
+
+</span>
+
+</td>
+
+<td>--</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+<!-- ==========================
+AI Analytics
+========================== -->
+
+<section class="analytics">
+
+<div class="analytics-card">
+
+<h2>
+
+Attendance Summary
+
+</h2>
+
+<div class="progress-bar">
+
+<div class="progress-fill">
+
+90%
+
+</div>
+
+</div>
+
+<div class="legend">
+
+<div>
+
+<span class="green"></span>
+
+Present
+
+</div>
+
+<div>
+
+<span class="red"></span>
+
+Absent
+
+</div>
+
+</div>
+
+</div>
+
+<div class="analytics-card">
+
+<h2>
+
+AI Statistics
+
+</h2>
+
+<div class="stat">
+
+<label>Recognition Accuracy</label>
+
+<strong>98.7%</strong>
+
+</div>
+
+<div class="stat">
+
+<label>Faces Detected</label>
+
+<strong>54</strong>
+
+</div>
+
+<div class="stat">
+
+<label>Unknown Faces</label>
+
+<strong>0</strong>
+
+</div>
+
+<div class="stat">
+
+<label>Average Recognition Time</label>
+
+<strong>0.42 sec</strong>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================
+Quick Actions
+========================== -->
+
+<section class="quick-actions">
+
+<button id="saveAttendance">
+
+<i class="fa-solid fa-floppy-disk"></i>
+
+Save Attendance
+
+</button>
+
+<button id="sendReport">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Send Report
+
+</button>
+
+<button id="retakeAttendance">
+
+<i class="fa-solid fa-camera"></i>
+
+Retake Attendance
+
+</button>
+
+<button id="goDashboard">
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</button>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 Smart Attendance | VIT Bhopal University
+
+</p>
+
+</footer>
+
+</div>
+
+<script src="js/results.js"></script>
+
+</body>
+
+</html>

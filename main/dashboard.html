@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Attendance Dashboard</title>
+
+<link rel="stylesheet" href="css/dashboard.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+
+<div class="logo-icon">
+
+ VIT
+
+</div>
+
+<h2>Smart Attendance</h2>
+
+<p>VIT Bhopal University</p>
+
+</div>
+
+<ul>
+
+<a href="dashboard.html" class="nav-link">
+    <li class="active">
+        <i class="fa-solid fa-house"></i>
+        <span>Dashboard</span>
+    </li>
+</a>
+
+<a href="attendance.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-camera"></i>
+        <span>Take Attendance</span>
+    </li>
+</a>
+
+<a href="students.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-user-group"></i>
+        <span>Students</span>
+    </li>
+</a>
+
+<a href="history.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>History</span>
+    </li>
+</a>
+
+<a href="reports.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Reports</span>
+    </li>
+</a>
+
+<a href="settings.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+    </li>
+</a>
+
+</ul>
+<div class="logout">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</div>
+
+</div>
+
+<div class="main">
+
+<header>
+
+<div>
+
+<h1>
+
+Dashboard
+
+</h1>
+
+<p>
+
+Welcome back Professor
+
+</p>
+
+</div>
+
+<div class="profile">
+
+<div class="notification">
+
+<i class="fa-solid fa-bell"></i>
+
+</div>
+
+<img src="https://i.pravatar.cc/80" alt="">
+
+</div>
+
+</header>
+
+<section class="cards">
+
+<div class="card">
+
+<h3>Total Students</h3>
+
+<h2>480</h2>
+
+<p>+18 This Month</p>
+
+</div>
+
+<div class="card">
+
+<h3>Attendance Today</h3>
+
+<h2>91%</h2>
+
+<p>Excellent</p>
+
+</div>
+
+<div class="card">
+
+<h3>Courses</h3>
+
+<h2>8</h2>
+
+<p>Active</p>
+
+</div>
+
+<div class="card">
+
+<h3>AI Accuracy</h3>
+
+<h2>98.6%</h2>
+
+<p>Face Recognition</p>
+
+</div>
+
+</section>
+<!-- =========================
+     Dashboard Content
+========================= -->
+
+<section class="dashboard-grid">
+
+    <!-- Left Side -->
+
+    <div class="left-panel">
+
+        <!-- AI Status -->
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <h2>AI Recognition Status</h2>
+
+                <span class="status online">
+                    ● Online
+                </span>
+
+            </div>
+
+            <div class="status-content">
+
+                <div class="status-box">
+
+                    <h3>Recognition Accuracy</h3>
+
+                    <h1>98.6%</h1>
+
+                </div>
+
+                <div class="status-box">
+
+                    <h3>Processing Speed</h3>
+
+                    <h1>0.42s</h1>
+
+                </div>
+
+                <div class="status-box">
+
+                    <h3>Faces Registered</h3>
+
+                    <h1>480</h1>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Recent Sessions -->
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <h2>Recent Attendance Sessions</h2>
+
+                <a href="#">View All</a>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Course</th>
+                        <th>Date</th>
+                        <th>Attendance</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>CSE2001</td>
+
+                        <td>18 Jul</td>
+
+                        <td>95%</td>
+
+                        <td>
+
+                            <span class="badge success">
+
+                                Completed
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>CSE1003</td>
+
+                        <td>17 Jul</td>
+
+                        <td>89%</td>
+
+                        <td>
+
+                            <span class="badge warning">
+
+                                Pending Review
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>CSE3012</td>
+
+                        <td>16 Jul</td>
+
+                        <td>97%</td>
+
+                        <td>
+
+                            <span class="badge success">
+
+                                Completed
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- Right Side -->
+
+    <div class="right-panel">
+
+        <!-- Quick Actions -->
+
+        <div class="panel">
+
+            <h2>Quick Actions</h2>
+
+            <div class="actions">
+
+                <button class="nav-item active"
+        onclick="window.location.href='dashboard.html'">
+    <i class="fa-solid fa-house"></i>
+    Dashboard
+</button>
+
+<button class="nav-item"
+        onclick="window.location.href='attendance.html'">
+    <i class="fa-solid fa-camera"></i>
+    Take Attendance
+</button>
+
+<button class="nav-item"
+        onclick="window.location.href='students.html'">
+    <i class="fa-solid fa-users"></i>
+    Students
+</button>
+
+<button class="nav-item"
+        onclick="window.location.href='history.html'">
+    <i class="fa-solid fa-clock-rotate-left"></i>
+    History
+</button>
+
+<button class="nav-item"
+        onclick="window.location.href='reports.html'">
+    <i class="fa-solid fa-chart-column"></i>
+    Reports
+</button>
+
+<button class="nav-item"
+        onclick="window.location.href='settings.html'">
+    <i class="fa-solid fa-gear"></i>
+    Settings
+</button>
+
+            </div>
+
+        </div>
+
+        <!-- Attendance Progress -->
+
+        <div class="panel">
+
+            <h2>Today's Progress</h2>
+
+            <div class="progress-circle">
+
+                <div class="circle">
+
+                    <h1>91%</h1>
+
+                    <p>Completed</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Notifications -->
+
+        <div class="panel">
+
+            <h2>Notifications</h2>
+
+            <ul class="notifications">
+
+                <li>
+
+                    AI detected 2 unknown faces.
+
+                </li>
+
+                <li>
+
+                    CSE2001 attendance exported successfully.
+
+                </li>
+
+                <li>
+
+                    New student registered.
+
+                </li>
+
+                <li>
+
+                    Face database synchronized.
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 Smart Attendance • VIT Bhopal University
+
+</p>
+
+</footer>
+
+</div>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

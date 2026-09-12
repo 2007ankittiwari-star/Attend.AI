@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Smart Attendance | Register</title>
+<link rel="stylesheet" href="css/auth.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+<div class="background">
+<div class="grid"></div><div class="circle one"></div><div class="circle two"></div><div class="circle three"></div>
+</div>
+<div class="container">
+<div class="logo">
+<div class="logo-box">VIT</div>
+<h1>Smart Attendance</h1>
+<p>VIT Bhopal University</p>
+<span>Create Your Account</span>
+</div>
+
+<div class="login-card">
+<h2>Create Account</h2>
+
+<div class="role-switch">
+<button type="button" class="role-btn active" id="studentBtn">Student</button>
+<button type="button" class="role-btn" id="profBtn">Professor</button>
+</div>
+
+<form id="registerForm">
+
+<div class="input-group">
+<label>Full Name</label>
+<div class="input-box"><i class="fa fa-user"></i><input type="text" required></div>
+</div>
+
+<div class="input-group" id="registrationGroup">
+<label>Registration Number</label>
+<div class="input-box"><i class="fa fa-id-card"></i><input id="regNo" placeholder="25BCEXXXXX"></div>
+</div>
+
+<div class="input-group" id="employeeGroup" style="display:none">
+<label>Employee ID</label>
+<div class="input-box"><i class="fa fa-id-badge"></i><input></div>
+</div>
+
+<div class="input-group">
+<label>Department</label>
+<div class="input-box">
+<select>
+<option>CSE Core</option>
+<option>CSE AI</option>
+<option>ECE</option>
+<option>Mechanical</option>
+</select>
+</div>
+</div>
+
+<div id="studentFields">
+<div class="input-group">
+<label>Year</label>
+<div class="input-box">
+<select>
+<option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option>
+</select>
+</div>
+</div>
+
+<div class="input-group">
+<label>Slot</label>
+<div class="input-box">
+<select><option>A11+A12+A13</option><option>B11+B12+B13</option><option>C11+C12+C13</option><option>D11+D12+D13</option></select>
+</div>
+</div>
+</div>
+
+<div class="input-group">
+<label>Email</label>
+<div class="input-box"><i class="fa fa-envelope"></i><input type="email" placeholder="user@vitbhopal.ac.in"></div>
+</div>
+
+<div class="input-group">
+<label>Password</label>
+<div class="input-box"><i class="fa fa-lock"></i><input id="registerPassword" type="password"></div>
+</div>
+
+<div class="input-group">
+<label>Confirm Password</label>
+<div class="input-box"><i class="fa fa-lock"></i><input id="confirmPassword" type="password"></div>
+</div>
+
+<div class="remember">
+<label><input type="checkbox" required> I agree to the Terms & Privacy Policy</label>
+</div>
+
+<button class="login-btn" type="submit">Create Account</button>
+</form>
+
+<div class="divider"><span>OR</span></div>
+
+<a class="register-btn" href="login.html">Already have an account? Sign In</a>
+
+</div>
+</div>
+<script src="js/auth.js"></script>
+<script>
+const studentBtn=document.getElementById('studentBtn');
+const profBtn=document.getElementById('profBtn');
+studentBtn.onclick=()=>{
+studentBtn.classList.add('active');profBtn.classList.remove('active');
+registrationGroup.style.display='block';studentFields.style.display='block';employeeGroup.style.display='none';
+}
+profBtn.onclick=()=>{
+profBtn.classList.add('active');studentBtn.classList.remove('active');
+registrationGroup.style.display='none';studentFields.style.display='none';employeeGroup.style.display='block';
+}
+document.getElementById('registerForm').onsubmit=(e)=>{
+e.preventDefault();
+const reg=document.getElementById('regNo');
+if(regParentVisible=registrationGroup.style.display!=='none'){
+if(!/^[0-9]{2}[A-Z]{3}[0-9]{5}$/.test(reg.value)){
+alert("Registration number must be like 25BCE11115");
+return;
+}}
+alert("Registration successful (frontend demo)");
+location.href="login.html";
+}
+</script>
+</body>
+</html>

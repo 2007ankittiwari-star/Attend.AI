@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>Smart Attendance| Attendance History</title>
+
+<link rel="stylesheet"
+href="css/history.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<div class="logo">
+
+<div class="logo-icon">
+
+VIT
+
+</div>
+
+<h2>Smart Attendance</h2>
+
+<p>VIT Bhopal University</p>
+
+</div>
+
+<ul>
+
+<a href="dashboard.html" class="nav-link">
+    <li class="active">
+        <i class="fa-solid fa-house"></i>
+        <span>Dashboard</span>
+    </li>
+</a>
+
+<a href="attendance.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-camera"></i>
+        <span>Take Attendance</span>
+    </li>
+</a>
+
+<a href="students.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-user-group"></i>
+        <span>Students</span>
+    </li>
+</a>
+
+<a href="history.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>History</span>
+    </li>
+</a>
+
+<a href="reports.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Reports</span>
+    </li>
+</a>
+
+<a href="settings.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+    </li>
+</a>
+
+</ul>
+<div class="logout-section">
+
+    <button id="logoutBtn">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Logout
+
+    </button>
+
+</div>
+
+
+</div>
+
+<div class="main">
+
+<header>
+
+<div>
+
+<h1>
+
+Attendance History
+
+</h1>
+
+<p>
+
+View Previous Attendance Records
+
+</p>
+
+</div>
+
+</header>
+
+<!-- Filters -->
+
+<section class="filters">
+
+<input
+type="date">
+
+<select>
+
+<option>All Subjects</option>
+
+<option>Machine Learning</option>
+
+<option>Artificial Intelligence</option>
+
+<option>DBMS</option>
+
+<option>Operating Systems</option>
+
+</select>
+
+<select>
+<option>Slot</option>
+
+<option> A11+A12+A13</option>
+
+<option> B11+B12+B13</option>
+
+<option> C11+C12+C13</option>
+
+<option> D11+D12+D13</option>
+
+</select>
+
+<input
+type="text"
+placeholder="Search Session">
+
+</section>
+
+<!-- Table -->
+
+<section class="history-table">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+
+<th>Subject</th>
+
+<th>Faculty</th>
+
+<th>Section</th>
+
+<th>Present</th>
+
+<th>Absent</th>
+
+<th>Attendance</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>20 July 2026</td>
+
+<td>Machine Learning</td>
+
+<td>Prof. Sharma</td>
+
+<td>A11+A12+A13</td>
+
+<td>54</td>
+
+<td>6</td>
+
+<td>
+
+<span class="good">
+
+90%
+
+</span>
+
+</td>
+
+<td>
+
+<button class="view">
+
+<i class="fa-solid fa-eye"></i>
+
+</button>
+
+<button class="download">
+
+<i class="fa-solid fa-download"></i>
+
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>18 July 2026</td>
+
+<td>Artificial Intelligence</td>
+
+<td>Prof. Gupta</td>
+
+<td>B11+B12+B13</td>
+
+<td>56</td>
+
+<td>4</td>
+
+<td>
+
+<span class="excellent">
+
+93%</span>
+
+</td>
+
+<td>
+
+<button class="view">
+
+<i class="fa-solid fa-eye"></i>
+
+</button>
+
+<button class="download">
+
+<i class="fa-solid fa-download"></i>
+
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>15 July 2026</td>
+
+<td>DBMS</td>
+
+<td>Prof. Name</td>
+
+<td>C11+C12+C13</td>
+
+<td>48</td>
+
+<td>12</td>
+
+<td>
+
+<span class="average">
+
+80%
+
+</span>
+
+</td>
+
+<td>
+
+<button class="view">
+
+<i class="fa-solid fa-eye"></i>
+
+</button>
+
+<button class="download">
+
+<i class="fa-solid fa-download"></i>
+
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+<script src="js/history.js"></script>
+
+</body>
+
+</html>

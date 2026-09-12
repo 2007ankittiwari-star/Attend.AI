@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Smart Attendence | Take Attendance</title>
+
+<link rel="stylesheet"
+href="css/attendance.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+
+<div class="logo-icon">
+
+VIT
+
+</div>
+
+<h2>Smart Attendance</h2>
+
+<p>VIT Bhopal University</p>
+
+</div>
+
+<ul>
+
+<a href="dashboard.html" class="nav-link">
+    <li class="active">
+        <i class="fa-solid fa-house"></i>
+        <span>Dashboard</span>
+    </li>
+</a>
+
+<a href="attendance.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-camera"></i>
+        <span>Take Attendance</span>
+    </li>
+</a>
+
+<a href="students.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-user-group"></i>
+        <span>Students</span>
+    </li>
+</a>
+
+<a href="history.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>History</span>
+    </li>
+</a>
+
+<a href="reports.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Reports</span>
+    </li>
+</a>
+
+<a href="settings.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+    </li>
+</a>
+
+</ul>
+<div class="logout-section">
+
+    <button id="logoutBtn">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Logout
+
+    </button>
+
+</div>
+
+</div>
+
+<div class="main">
+
+<header>
+
+<div>
+
+<h1>
+
+Take Attendance
+
+</h1>
+
+<p>
+
+AI Face Recognition
+
+</p>
+
+</div>
+
+<div class="status">
+
+<span class="online"></span>
+
+Camera Ready
+
+</div>
+
+</header>
+
+<div class="attendance-grid">
+
+<div class="camera-card">
+
+<h2>
+
+Live Camera
+
+</h2>
+
+<div class="camera-frame">
+
+<video
+    id="cameraPreview"
+    autoplay
+    playsinline
+    muted>
+</video>
+
+</div>
+
+<div class="camera-buttons">
+
+<button type="button" id="startCamera">
+
+<i class="fa-solid fa-video"></i>
+
+Start Camera
+
+</button>
+
+<button type="button" id="capture">
+
+<i class="fa-solid fa-camera"></i>
+
+Capture
+
+</button>
+
+<button type="button" id="stopCamera">
+
+<i class="fa-solid fa-stop"></i>
+
+Stop
+
+</button>
+
+</div>
+
+</div>
+
+<div class="control-panel">
+
+<h2>
+
+Attendance Details
+
+</h2>
+<!-- Subject -->
+
+<div class="form-group">
+
+<label>Subject</label>
+
+<select id="subject">
+
+<option>Select Subject</option>
+
+<option>Machine Learning</option>
+
+<option>Artificial Intelligence</option>
+
+<option>Database Management System</option>
+
+<option>Computer Networks</option>
+
+<option>Operating Systems</option>
+
+</select>
+
+</div>
+
+<!-- Faculty -->
+
+<div class="form-group">
+
+<label>Faculty</label>
+
+<input
+type="text"
+value="Prof. Name"
+readonly>
+
+</div>
+
+<!-- Section -->
+
+<div class="form-group">
+
+<label>Slot</label>
+
+<select>
+
+<option>A11+A12+A13</option>
+
+<option>B11+B12+B13</option>
+
+<option>C11+C12+C13</option>
+
+<option>D11+D12+D13</option>
+
+</select>
+
+</div>
+
+<!-- Date -->
+
+<div class="form-group">
+
+<label>Date</label>
+
+<input
+type="date"
+id="attendanceDate">
+
+</div>
+
+<!-- Time -->
+
+<div class="form-group">
+
+<label>Time</label>
+
+<input
+type="time"
+id="attendanceTime">
+
+</div>
+
+<!-- AI Status -->
+
+<div class="ai-box">
+
+<h3>
+
+AI Face Recognition
+
+</h3>
+
+<div class="ai-status">
+
+    <div class="dot"></div>
+
+    <span id="aiStatusText">
+
+        Waiting for Camera...
+
+    </span>
+
+</div>
+
+<!-- Buttons -->
+
+<div class="action-buttons">
+
+<button type="button" id="startAttendanceBtn" class="start-btn">
+
+<i class="fa-solid fa-play"></i>
+
+Start Attendance
+
+</button>
+
+<button type="button" class="pause-btn">
+
+<i class="fa-solid fa-pause"></i>
+
+Pause
+
+</button>
+
+<button type="button" id="finishAttendanceBtn" class="finish-btn">
+
+<i class="fa-solid fa-check"></i>
+
+Finish
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =======================
+Statistics
+======================= -->
+
+<section class="stats">
+
+<div class="stat-card">
+
+<h2 id="presentCount">
+
+0
+
+</h2>
+
+<p>
+
+Present Students
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2 id="absentCount">
+
+0
+
+</h2>
+
+<p>
+
+Absent Students
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2 id="unknownCount">
+
+0
+
+</h2>
+
+<p>
+
+Unknown Faces
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2 id="percentage">
+
+0%
+
+</h2>
+
+<p>
+
+Attendance
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ======================
+Detected Students
+====================== -->
+
+<section class="attendance-table">
+
+<div class="table-header">
+
+<h2>
+
+Detected Students
+
+</h2>
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Photo</th>
+
+<th>Registration No</th>
+
+<th>Name</th>
+
+<th>Status</th>
+
+<th>Time</th>
+
+</tr>
+
+</thead>
+
+<tbody id="attendanceBody">
+
+<tr>
+
+<td>
+
+<img
+src="https://i.pravatar.cc/45?img=10">
+
+</td>
+
+<td>
+
+25BCEXXXXX
+
+</td>
+
+<td>
+
+Vishva Chauhan
+
+</td>
+
+<td>
+
+<span class="present">
+
+Present
+
+</span>
+
+</td>
+
+<td>
+
+09:05 AM
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+</div>
+
+<script src="js/attendance.js"></script>
+
+</body>
+
+</html>

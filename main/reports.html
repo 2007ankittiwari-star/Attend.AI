@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Smart Attendance | Reports</title>
+
+<link rel="stylesheet"
+href="css/reports.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<!-- Chart.js -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<div class="logo">
+
+<div class="logo-icon">
+
+VIT
+
+</div>
+
+<h2>Smart Attendance</h2>
+
+<p>VIT Bhopal University</p>
+
+</div>
+
+<ul>
+
+<a href="dashboard.html" class="nav-link">
+    <li class="active">
+        <i class="fa-solid fa-house"></i>
+        <span>Dashboard</span>
+    </li>
+</a>
+
+<a href="attendance.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-camera"></i>
+        <span>Take Attendance</span>
+    </li>
+</a>
+
+<a href="students.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-user-group"></i>
+        <span>Students</span>
+    </li>
+</a>
+
+<a href="history.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>History</span>
+    </li>
+</a>
+
+<a href="reports.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Reports</span>
+    </li>
+</a>
+
+<a href="settings.html" class="nav-link">
+    <li>
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+    </li>
+</a>
+
+</ul>
+<div class="logout-section">
+
+    <button id="logoutBtn">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Logout
+
+    </button>
+
+</div>
+
+</div>
+
+<!-- Main -->
+
+<div class="main">
+
+<header>
+
+<div>
+
+<h1>
+
+Reports & Analytics
+
+</h1>
+
+<p>
+
+Attendance Statistics & AI Performance
+
+</p>
+
+</div>
+
+<div class="header-buttons">
+
+<button id="excelBtn">
+
+<i class="fa-solid fa-file-excel"></i>
+
+Excel
+
+</button>
+
+<button id="pdfBtn">
+
+<i class="fa-solid fa-file-pdf"></i>
+
+PDF
+
+</button>
+
+</div>
+
+</header>
+
+<!-- Summary Cards -->
+
+<section class="cards">
+
+<div class="card">
+
+<h2>
+
+480
+
+</h2>
+
+<p>Total Students</p>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+451
+
+</h2>
+
+<p>Average Present</p>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+94%
+
+</h2>
+
+<p>Attendance</p>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+99.2%
+
+</h2>
+
+<p>AI Accuracy</p>
+
+</div>
+
+</section>
+
+<!-- Charts -->
+
+<section class="charts">
+
+<div class="chart-card">
+
+<h2>
+
+Present vs Absent
+
+</h2>
+
+<canvas id="pieChart"></canvas>
+
+</div>
+
+<div class="chart-card">
+
+<h2>
+
+Weekly Attendance
+
+</h2>
+
+<canvas id="barChart"></canvas>
+
+</div>
+
+</section>
+
+<section class="charts">
+
+<div class="chart-card wide">
+
+<h2>
+
+Monthly Attendance Trend
+
+</h2>
+
+<canvas id="lineChart"></canvas>
+
+</div>
+
+</section>
+
+<!-- Subject Performance -->
+
+<section class="subject-table">
+
+<h2>
+
+Subject-wise Attendance
+
+</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Subject</th>
+
+<th>Faculty</th>
+
+<th>Attendance</th>
+
+<th>AI Accuracy</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Machine Learning</td>
+
+<td>Prof. Sharma</td>
+
+<td>94%</td>
+
+<td>99.1%</td>
+
+</tr>
+
+<tr>
+
+<td>Artificial Intelligence</td>
+
+<td>Prof. Gupta</td>
+
+<td>91%</td>
+
+<td>98.8%</td>
+
+</tr>
+
+<tr>
+
+<td>DBMS</td>
+
+<td>Prof. Singh</td>
+
+<td>88%</td>
+
+<td>98.4%</td>
+
+</tr>
+
+<tr>
+
+<td>Operating Systems</td>
+
+<td>Prof. Patel</td>
+
+<td>92%</td>
+
+<td>99.3%</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+<script src="js/reports.js"></script>
+
+</body>
+
+</html>
