@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Attendance | Students</title>
+    <link rel="stylesheet" href="css/students.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">VIT</div>
+            <h2>Smart Attendance</h2>
+            <p>VIT Bhopal University</p>
+        </div>
+
+        <ul>
+            <a href="dashboard.html" class="nav-link">
+                <li>
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </li>
+            </a>
+
+            <a href="attendance.html" class="nav-link">
+                <li>
+                    <i class="fa-solid fa-camera"></i>
+                    <span>Take Attendance</span>
+                </li>
+            </a>
+
+            <a href="students.html" class="nav-link">
+                <li class="active">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span>Students</span>
+                </li>
+            </a>
+
+            <a href="history.html" class="nav-link">
+                <li>
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>History</span>
+                </li>
+            </a>
+
+            <a href="reports.html" class="nav-link">
+                <li>
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Reports</span>
+                </li>
+            </a>
+
+            <a href="settings.html" class="nav-link">
+                <li>
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </li>
+            </a>
+        </ul>
+
+        <div class="logout-section">
+            <button id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+        <header>
+            <div>
+                <h1>Student Management</h1>
+                <p>Manage Registered Students</p>
+            </div>
+
+            <button class="addStudent" id="openAddStudentModal">
+                <i class="fa-solid fa-user-plus"></i>
+                Add Student
+            </button>
+        </header>
+
+        <!-- Summary Cards -->
+        <section class="cards">
+            <div class="card">
+                <h2 id="totalStudentsCount">0</h2>
+                <p>Total Students</p>
+            </div>
+
+            <div class="card">
+                <h2 id="facesRegisteredCount">0</h2>
+                <p>Faces Registered</p>
+            </div>
+
+            <div class="card">
+                <h2 id="pendingCount">0</h2>
+                <p>Pending Registration</p>
+            </div>
+
+            <div class="card">
+                <h2>98%</h2>
+                <p>Recognition Accuracy</p>
+            </div>
+        </section>
+
+        <!-- Search -->
+        <div class="search">
+            <input type="text" id="searchStudent" placeholder="Search Student by Name or Roll No...">
+            <i class="fa-solid fa-search"></i>
+        </div>
+
+        <!-- Student Table -->
+        <section class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Photo</th>
+                        <th>Registration</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Section</th>
+                        <th>Face</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTableBody">
+                    <!-- Dynamic Rows Loaded Here by JS -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button><i class="fa-solid fa-angle-left"></i></button>
+            <button class="active">1</button>
+            <button><i class="fa-solid fa-angle-right"></i></button>
+        </div>
+
+        <!-- Add Student Modal -->
+        <div class="modal" id="studentModal" style="display: none;">
+            <div class="modal-content">
+                <h2>Add Student</h2>
+
+                <form id="studentForm">
+                    <input type="text" id="studentName" placeholder="Full Name" required>
+                    <input type="text" id="rollNo" placeholder="Registration Number (25BCEXXXXX)" required>
+                    <input type="email" id="studentEmail" placeholder="University Email" required>
+
+                    <select id="department">
+                        <option value="CSE Core">CSE Core</option>
+                        <option value="CSE AI">CSE AI</option>
+                        <option value="ECE">ECE</option>
+                        <option value="Mechanical">Mechanical</option>
+                    </select>
+
+                    <select id="section">
+                        <option value="A11+A12+A13">A11+A12+A13</option>
+                        <option value="B11+B12+B13">B11+B12+B13</option>
+                        <option value="C11+C12+C13">C11+C12+C13</option>
+                        <option value="D11+D12+D13">D11+D12+D13</option>
+                    </select>
+
+                    <div class="face-box">
+                        <i class="fa-solid fa-camera"></i>
+                        <p id="photoStatusText">Upload Reference Face Image</p>
+                        <!-- Hidden File Input triggered by button -->
+                        <input type="file" id="studentPhoto" accept="image/*" style="display: none;" required>
+                        <button type="button" id="captureFaceBtn">Select Face Photo</button>
+                    </div>
+
+                    <p id="modalStatusMsg" style="margin-top: 10px; font-weight: 600; text-align: center;"></p>
+
+                    <div class="modal-buttons">
+                        <button type="submit" id="saveStudentBtn">Save Student</button>
+                        <button type="button" id="closeModal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 Smart Attendance • VIT Bhopal University</p>
+        </footer>
+    </div>
+
+    <script src="js/students.js"></script>
+</body>
+
+</html>
