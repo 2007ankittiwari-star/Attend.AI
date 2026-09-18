@@ -23,9 +23,7 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'mp4', 'webm', 'avi', 'mov'}
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-# ---------------------------------------------------------
-# 🔥 FIREBASE INITIALIZATION
-# ---------------------------------------------------------
+#Firebase initialisation
 db = None
 try:
     cred_path = os.path.join(os.path.dirname(__file__), "serviceAccountKey.json")
@@ -39,9 +37,7 @@ try:
 except Exception as e:
     print(f"⚠️ Firebase initialization failed: {e}")
 
-# ---------------------------------------------------------
-# 👤 REGISTER STUDENT ROUTE
-# ---------------------------------------------------------
+#  REGISTER STUDENT ROUTE
 @app.route('/api/register-student', methods=['POST'])
 def register_student():
     roll_no = request.form.get('roll_no')
@@ -95,9 +91,7 @@ def register_student():
         "student": student_data
     }), 201
 
-# ---------------------------------------------------------
-# 📋 GET ALL REGISTERED STUDENTS ROUTE
-# ---------------------------------------------------------
+#  GET ALL REGISTERED STUDENTS ROUTE
 @app.route('/api/students', methods=['GET'])
 def get_students():
     students_list = []
@@ -112,9 +106,7 @@ def get_students():
             return jsonify([]), 500
     return jsonify([]), 200
 
-# ---------------------------------------------------------
-# 🎬 LIVE AI VIDEO ATTENDANCE PROCESSOR ROUTE
-# ---------------------------------------------------------
+#  LIVE AI VIDEO ATTENDANCE PROCESSOR ROUTE
 @app.route('/api/process-attendance', methods=['POST'])
 def process_attendance():
     if 'video' not in request.files:
@@ -155,7 +147,7 @@ def process_attendance():
                 dfs = DeepFace.find(
                     img_path=temp_frame_path,
                     db_path=KNOWN_FACES_DIR,
-                    detector_backend='skip',
+                    detector_backend='mtcnn',
                     enforce_detection=False,
                     silent=True
                 )
