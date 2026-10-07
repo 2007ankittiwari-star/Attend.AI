@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Smart Attendance | Professor Registration</title>
+<link rel="stylesheet" href="css/auth.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<link rel="stylesheet" href="css/transitions.css">
+</head>
+<body>
+<div class="background"><div class="grid"></div><div class="circle one"></div><div class="circle two"></div><div class="circle three"></div></div>
+<div class="container">
+<div class="logo">
+<div class="logo-box">VIT</div>
+<h1>Smart Attendance</h1>
+<p>VIT Bhopal University</p>
+<span>Professor Attendance Management System</span>
+</div>
+<div class="login-card">
+<h2>Create Professor Account</h2>
+<form id="registerForm">
+<div class="input-group"><label>Full Name</label><div class="input-box"><i class="fa fa-user"></i><input id="name" type="text" required></div></div>
+<div class="input-group"><label>Employee ID</label><div class="input-box"><i class="fa fa-id-badge"></i><input id="employeeId" type="text" required></div></div>
+<div class="input-group"><label>Department</label><div class="input-box"><select id="department"><option>CSE Core</option><option>CSE AI</option><option>ECE</option><option>Mechanical</option><option>Other</option></select></div></div>
+<div class="input-group"><label>University Email</label><div class="input-box"><i class="fa fa-envelope"></i><input id="email" type="email" placeholder="professor@vitbhopal.ac.in" required></div></div>
+<div class="input-group"><label>Password</label><div class="input-box"><i class="fa fa-lock"></i><input id="registerPassword" type="password" minlength="6" required></div></div>
+<div class="input-group"><label>Confirm Password</label><div class="input-box"><i class="fa fa-lock"></i><input id="confirmPassword" type="password" minlength="6" required></div></div>
+<div class="remember"><label><input type="checkbox" required> I agree to the Terms & Privacy Policy</label></div>
+<button class="login-btn" type="submit">Create Professor Account</button>
+</form>
+<div class="divider"><span>OR</span></div>
+<a class="register-btn" href="login.html">Already have an account? Sign In</a>
+</div>
+</div>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
