@@ -189,7 +189,6 @@ def auth_login():
 
 
 # ---------------- STUDENT ENROLLMENT ----------------
-
 @app.route("/api/students", methods=["POST"])
 def register_student():
     try:
@@ -211,9 +210,6 @@ def register_student():
             return jsonify({"error": "Please upload JPG, JPEG, PNG or WEBP image."}), 400
 
         # Validate the image before touching Firebase.
-        
-               # Validate the image before touching Firebase.
-                # Validate the image before touching Firebase.
         raw = file.read()
         image = cv2.imdecode(np.frombuffer(raw, np.uint8), cv2.IMREAD_COLOR)
         if image is None:
@@ -339,7 +335,6 @@ def delete_student(roll_no):
 
 
 # ---------------- DASHBOARD / HISTORY / SETTINGS ----------------
-
 @app.route("/api/dashboard", methods=["GET"])
 def dashboard_stats():
     try:
@@ -417,7 +412,6 @@ def save_settings(email):
 
 
 # ---------------- AI ATTENDANCE ----------------
-
 @app.route("/api/process-attendance", methods=["POST"])
 def process_attendance():
     try:
