@@ -1,0 +1,6 @@
+backend/serviceAccountKey.json
+backend/venv/
+backend/__pycache__/
+backend/uploads/
+backend/cache/
+.DS_Store
