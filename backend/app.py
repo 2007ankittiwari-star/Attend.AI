@@ -222,7 +222,7 @@ def register_student():
             return jsonify({"error": "Face image must be 10 MB or smaller."}), 400
 
         try:
-            faces = DeepFace.extract_faces(img_path=image, detector_backend="mtcnn", enforce_detection=True)
+            faces = DeepFace.extract_faces(img_path=image, detector_backend="retinaface", enforce_detection=True)
         except Exception:
             faces = []
         if not faces:
@@ -438,11 +438,11 @@ def process_attendance():
         user_email = request.form.get("user_email", "")
 
         # Load the professor's saved recognition threshold (defaults to 85%).
-        saved_threshold = 85
+        saved_threshold = 75
         if user_email:
             settings_doc = db.collection("settings").document(user_email.lower()).get()
             if settings_doc.exists:
-                saved_threshold = settings_doc.to_dict().get("threshold", 85)
+                saved_threshold = settings_doc.to_dict().get("threshold", 75)
         distance_threshold = 0.4+(100 - saved_threshold) / 100 * 0.6
 
         # Build the roster BEFORE processing so we can map the sanitized filenames
@@ -479,7 +479,7 @@ def process_attendance():
                     break
 
                 # Sample roughly 2 frames/second for a manageable prototype.
-                if frame_index % 15 == 0:
+                if frame_index % 30 == 0:
                     processed_frames += 1
                     frame_path = os.path.join(UPLOAD_FOLDER, f"frame_{uuid.uuid4().hex}.jpg")
                     cv2.imwrite(frame_path, frame)
@@ -488,7 +488,7 @@ def process_attendance():
                         dfs = DeepFace.find(
                             img_path=frame_path,
                             db_path=KNOWN_FACES_FOLDER,
-                            detector_backend="mtcnn",
+                            detector_backend="retinaface",
                             enforce_detection=False,
                             silent=True
                         )
@@ -598,7 +598,55 @@ def process_attendance():
     except Exception as e:
         print(f"Attendance processing error: {repr(e)}")
         return jsonify({"error": f"Could not process attendance: {str(e)}"}), 500
+    
+@app.route("/api/attendance-logs/<log_id>/mark", methods=["PATCH"])
+def mark_attendance(log_id):
+    try:
+        require_firebase()
+        payload = request.get_json(silent=True) or {}
+        roll_no = payload.get("roll_no")
+        status = payload.get("status")
+        if not roll_no or status not in ("Present", "Absent"):
+            return jsonify({"error": "roll_no and a valid status (Present/Absent) are required."}), 400
 
+        ref = db.collection("attendance_logs").document(log_id)
+        doc = ref.get()
+        if not doc.exists:
+            return jsonify({"error": "Attendance record not found."}), 404
+
+        data = doc.to_dict()
+        results = data.get("results", [])
+        found = False
+        for r in results:
+            if r.get("roll_no") == roll_no:
+                r["status"] = status
+                found = True
+                break
+        if not found:
+            return jsonify({"error": "Student not found in this attendance record."}), 404
+
+        present_count = sum(1 for r in results if r.get("status") == "Present")
+        total = len(results)
+        attendance_percentage = round(present_count / total * 100) if total else 0
+        detected_students = [r["roll_no"] for r in results if r.get("status") == "Present"]
+
+        ref.update({
+            "results": results,
+            "detected_students": detected_students,
+            "detected_faces": len(detected_students),
+            "attendance_percentage": attendance_percentage,
+            "manually_edited": True
+        })
+
+        return jsonify({
+            "message": "Attendance updated.",
+            "results": results,
+            "detected_faces": len(detected_students),
+            "attendance_percentage": attendance_percentage
+        }), 200
+    except Exception as e:
+        print(f"Mark attendance error: {repr(e)}")
+        return jsonify({"error": f"Could not update attendance: {str(e)}"}), 500
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", "5000")), debug=True)
