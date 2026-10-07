@@ -1,0 +1,488 @@
+/* ===========================================
+   AttendAI Reports Dashboard
+   VIT Bhopal University
+=========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    display:flex;
+    background:#071323;
+    color:#fff;
+    min-height:100vh;
+}
+
+/* ================= Sidebar ================= */
+.nav-link{
+    text-decoration:none;
+    color:white;
+}
+
+.nav-link li{
+    list-style:none;
+}
+.sidebar{
+
+    width:260px;
+
+    background:#0b1c33;
+
+    padding:30px;
+
+    border-right:1px solid rgba(255,255,255,.08);
+
+}
+
+.logo{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.logo-icon{
+
+    width:70px;
+
+    height:70px;
+
+    margin:auto;
+
+    border-radius:18px;
+
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+
+}
+
+.logo p{
+
+    color:#94a3b8;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar li{
+
+    padding:16px;
+
+    border-radius:12px;
+
+    margin-bottom:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.sidebar li:hover{
+
+    background:#16375f;
+
+}
+
+.sidebar li.active{
+
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+
+}
+/* ================= Logout ================= */
+
+.sidebar{
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100vh;
+
+}
+
+.sidebar ul{
+
+    flex:1;
+
+}
+
+.logout-section{
+
+    margin-top:auto;
+
+}
+
+#logoutBtn{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#dc2626;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#logoutBtn:hover{
+
+    background:#ef4444;
+
+    transform:translateY(-2px);
+
+}
+
+#logoutBtn i{
+
+    margin-right:10px;
+
+}
+/* ================= Main ================= */
+
+.main{
+
+    flex:1;
+
+    padding:35px;
+
+}
+
+/* ================= Header ================= */
+
+header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+header h1{
+
+    font-size:34px;
+
+}
+
+header p{
+
+    color:#94a3b8;
+
+}
+
+.header-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.header-buttons button{
+
+    padding:14px 22px;
+
+    border:none;
+
+    border-radius:12px;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#excelBtn{
+
+    background:#16a34a;
+
+}
+
+#pdfBtn{
+
+    background:#dc2626;
+
+}
+
+.header-buttons button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* ================= Cards ================= */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+    margin-bottom:35px;
+
+}
+
+.card{
+
+    background:#0f213c;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:.3s;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(10px);
+
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.35);
+
+}
+
+.card h2{
+
+    color:#38bdf8;
+
+    font-size:38px;
+
+    margin-bottom:10px;
+
+}
+
+.card p{
+
+    color:#94a3b8;
+
+}
+/* ================= Charts ================= */
+
+.charts{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+
+    margin-bottom:30px;
+
+}
+
+.chart-card{
+
+    background:#0f213c;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.chart-card h2{
+
+    margin-bottom:20px;
+
+}
+
+.chart-card canvas{
+
+    width:100% !important;
+
+    height:320px !important;
+
+}
+
+.wide{
+
+    grid-column:1/-1;
+
+}
+
+/* ================= Subject Table ================= */
+
+.subject-table{
+
+    background:#0f213c;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.subject-table h2{
+
+    margin-bottom:20px;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:#132c50;
+
+}
+
+th{
+
+    padding:16px;
+
+    text-align:left;
+
+}
+
+td{
+
+    padding:16px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+tbody tr{
+
+    transition:.3s;
+
+}
+
+tbody tr:hover{
+
+    background:#132c50;
+
+}
+
+/* ================= Scrollbar ================= */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2563eb;
+
+    border-radius:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#071323;
+
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:1200px){
+
+.cards{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.charts{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.sidebar{
+
+display:none;
+
+}
+
+.main{
+
+padding:20px;
+
+}
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:20px;
+
+}
+
+table{
+
+font-size:13px;
+
+}
+
+}
