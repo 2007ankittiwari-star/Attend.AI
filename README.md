@@ -52,6 +52,7 @@ Take attendance with a camera instead of calling out names.
 ```bash
 git clone [https://github.com/2007ankittiwari-star/Attend.AI.git](https://github.com/2007ankittiwari-star/Attend.AI.git)
 cd Attend-AI
+
 Step 2: Configure Firebase Database
 Go to the Firebase Console and create a new project.
 
